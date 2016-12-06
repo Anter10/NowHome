@@ -19,6 +19,17 @@ class RegisterViewTable: UITableViewController, UITextFieldDelegate {
         self.tableView.tableFooterView = UIView()
         //        self.tableView.bounces = false
         self.tableView.backgroundColor = UIColor.groupTableViewBackground
+        let size = self.tableView.bounds
+        self.tableView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height - 50)
+        
+        let IdLabel = UIButton(frame: CGRect(x: Parameters.ScreenWidthCenter - 60, y: size.height - 80, width: 120, height: 40))
+        IdLabel.titleLabel?.textColor = UIColor.blue
+        IdLabel.setTitle("用户协议", for: UIControlState.normal)
+        IdLabel.setTitleColor(UIColor.blue, for: .normal)
+        self.view.addSubview(IdLabel)
+        IdLabel.addTarget(self, action:#selector(userKonw(_:)), for:.touchUpInside)
+    
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -26,6 +37,14 @@ class RegisterViewTable: UITableViewController, UITextFieldDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    
+    // 登录服务器
+    func userKonw(_ sender: UIButton){
+        
+        
+        print("LoginServer")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -71,7 +90,7 @@ class RegisterViewTable: UITableViewController, UITextFieldDelegate {
         let aa = "{id:12122}"
         
         let vv = ["id":aa]
-        Parameters.sendData(url: "", senddata: vv, view: self,callBack: registerCall)
+        sendData(url: "", senddata: vv, view: self,callBack: registerCall)
         print("postJSON = ")
     }
     

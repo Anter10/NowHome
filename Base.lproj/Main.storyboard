@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="imJ-vn-6qO" id="nMC-Gr-ccq">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -36,12 +36,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPh-e5-BSp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5506" y="-2137"/>
+            <point key="canvasLocation" x="-6012" y="-2205"/>
         </scene>
         <!--cxc-->
         <scene sceneID="epT-dx-iZH">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dde-8W-AgQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController title="cxc" id="4vi-RI-vW3" customClass="LoginNavigationView" customModule="NowHome" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WEX-kg-jI4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -51,8 +50,9 @@
                         <segue destination="pWv-oa-Btg" kind="relationship" relationship="rootViewController" id="JtT-Fc-up7"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dde-8W-AgQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7380" y="-2201"/>
+            <point key="canvasLocation" x="-7522" y="-2163"/>
         </scene>
         <!--Main Tab Bar Table-->
         <scene sceneID="yl2-sM-qoP">
@@ -83,7 +83,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wkC-qR-Fpd" id="l1b-uN-V7y">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -113,7 +113,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kNO-MU-uS9" id="z4S-pR-4ba">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -143,7 +143,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SDE-iE-93l" id="Lv9-KR-2j9">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

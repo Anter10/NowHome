@@ -13,7 +13,23 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
+// 相关的方法
 
+// 发送JSON数据请求
+func sendData(url: String, senddata: [String: String] , view : UIViewController, callBack: @escaping (JSON) ->Void ) -> Bool{
+    
+    Alamofire.request("http://localhost:8080/XZRY/senddata.jsp", method: .post, parameters:senddata, encoding: URLEncoding.methodDependent).responseJSON { response in
+        switch response.result {
+        case .success(let data):
+            callBack(JSON(data))
+        case .failure:
+            
+            print("请求失败")
+        }
+    }
+    
+    return false
+}
 
 
 class Parameters {
@@ -37,41 +53,7 @@ class Parameters {
     
     
     
-    // 相关的方法
-    
-    // 发送JSON数据请求
-    static func sendData(url: String, senddata: [String: String] , view : UIViewController, callBack: @escaping (JSON) ->Void ) -> Bool{
-        print("发送的数据  = ",senddata)
-        let headers: HTTPHeaders = [
-            "Authorization": "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==",
-            "Accept": "application/json"
-        ]
-        let parameters1:[String : Any] = [
-            "foo": "bar",
-            "baz": ["a", 1],
-            "qux": [
-                "x": 1,
-                "y": 2,
-                "z": 3
-            ]
-    ]
-        var sss = "12222"
-        var abc = ["name":sss]
-        Alamofire.request("http://localhost:8080/XZRY/senddata.jsp", method: .post, parameters:abc, encoding: URLEncoding.queryString).responseJSON { response in
-            print(response.request)  // original URL request
-            print(response.response) // HTTP URL response
-            print(response.data)     // server data
-            print(response.result)   // result of response serialization
-            var screen = UIScreen.main.bounds
-            print("屏幕尺寸   =   ",screen)
-            if let data = response.result.value  {
-                let len = JSON(data)
-                callBack(len)
-//                print("JSON: \(JSON(data))")
-            }
-        }
-        return false
-    }
+ 
 }
 
 

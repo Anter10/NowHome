@@ -9,18 +9,19 @@
 import UIKit
 
 class MainTabBarTable: UITabBarController {
-
+    
+    var mc  =  MessageCenter()
+    var hc  =  HealthCenter()
+    var pc  =  PersonCenter()
+    var allController:[UIViewController] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        let mc = MessageCenter()
-        let hc = HealthCenter()
-        let pc = PersonCenter()
+        
         mc.tabBarItem.title = "消息中心"
         hc.tabBarItem.title = "健康数据"
         pc.tabBarItem.title = "个人中心"
-        
         self.view.backgroundColor = UIColor.groupTableViewBackground
-        var allController = [mc,hc,pc]
+        var allController = [mc,hc,pc] as [UIViewController]
         self.viewControllers = allController
         // Do any additional setup after loading the view.
     }
