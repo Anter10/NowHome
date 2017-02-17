@@ -18,7 +18,7 @@ import Alamofire
 // 发送JSON数据请求
 func sendData(url: String, senddata: [String: String] , view : UIViewController, callBack: @escaping (JSON) ->Void ) -> Bool{
     
-    Alamofire.request("http://localhost:8080/XZRY/senddata.jsp", method: .post, parameters:senddata, encoding: URLEncoding.methodDependent).responseJSON { response in
+    Alamofire.request("http://192.168.1.103:8080/XZRY/senddata.jsp", method: .post, parameters:senddata, encoding: URLEncoding.methodDependent).responseJSON { response in
         switch response.result {
         case .success(let data):
             callBack(JSON(data))

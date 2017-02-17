@@ -17,12 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        Alamofire.request("http://localhost:8080/XZRY/senddata.jsp").responseJSON { response in
+        Alamofire.request("http://192.168.1.103:8080/XZRY/senddata.jsp").responseJSON { response in
             print(response.request)  // original URL request
-            print(response.response) // HTTP URL response
-            print(response.data)     // server data
-            print(response.result)   // result of response serialization
-            var screen = UIScreen.main.bounds
+                        var screen = UIScreen.main.bounds
             print("屏幕尺寸   =   ",screen)
             if let data = response.result.value  {
                 let len = JSON(data)

@@ -26,12 +26,13 @@ class LoginViewTable: UITableViewController , UITextFieldDelegate{
         self.tableView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height - 50)
         
         let IdLabel = UIButton(frame: CGRect(x: Parameters.ScreenWidthCenter - 60, y: size.height - 100, width: 120, height: 40))
+        IdLabel.titleLabel?.font = UIFont(name: "Arial", size: 14)
         IdLabel.titleLabel?.textColor = UIColor.blue
-        IdLabel.setTitle("更多...", for: UIControlState.normal)
+        IdLabel.setTitle("更多操作", for: UIControlState.normal)
         IdLabel.setTitleColor(UIColor.blue, for: .normal)
         self.view.addSubview(IdLabel)
         IdLabel.addTarget(self, action:#selector(MoreCall(_:)), for:.touchUpInside)
-    
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -43,7 +44,8 @@ class LoginViewTable: UITableViewController , UITextFieldDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+ 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -117,10 +119,24 @@ class LoginViewTable: UITableViewController , UITextFieldDelegate{
             print("OK")
         }
         
+        
+        // 验证码登录
+        let codeAction = UIAlertAction(title: "验证码登录", style: UIAlertActionStyle.default){
+            
+            (result : UIAlertAction) -> Void in
+            let backButton = UIBarButtonItem()
+            backButton.title = "验证码登录"
+            self.navigationItem.backBarButtonItem = backButton
+            let name = CodeViewTable()
+            self.show(name, sender: nil)
+            print("OK")
+        }
+
         alert.addAction(cancelAction)
        
         alert.addAction(forgetAction)
         alert.addAction(okAction)
+        alert.addAction(codeAction)
         self.present(alert, animated: true){
             Void in
             
@@ -132,7 +148,8 @@ class LoginViewTable: UITableViewController , UITextFieldDelegate{
         //收起键盘
         textField.resignFirstResponder()
         //打印出文本框中的值
-        
+        print("输入的什么 " , String(describing: self.PasswordField?.text))
+        print("输入的什么 " , String(describing: self.PhoneOrEmailTextField?.text))
         return true;
     }
     
@@ -161,16 +178,16 @@ class LoginViewTable: UITableViewController , UITextFieldDelegate{
                 let IdLabel = UILabel(frame: CGRect(x: 10, y: upsize, width: 120, height: 40))
                 IdLabel.font = UIFont.boldSystemFont(ofSize: 22)
                 cell.addSubview(IdLabel)
-                IdLabel.text = "账号 "
+                IdLabel.text = "账号: "
                 cell.addSubview(PhoneOrEmailTextField!)
                 PhoneOrEmailTextField?.font = UIFont.systemFont(ofSize: 18)
 //                PhoneOrEmailTextField?.borderStyle = UITextBorderStyle.roundedRect
                 PhoneOrEmailTextField?.delegate=self
-                PhoneOrEmailTextField?.returnKeyType = UIReturnKeyType.join
+                PhoneOrEmailTextField?.returnKeyType = UIReturnKeyType.next
                 PhoneOrEmailTextField?.clearButtonMode = .whileEditing
-                PhoneOrEmailTextField?.minimumFontSize=16
+                PhoneOrEmailTextField?.minimumFontSize=18
                 PhoneOrEmailTextField?.adjustsFontSizeToFitWidth=true
-                PhoneOrEmailTextField?.placeholder = "请输入手机号/邮箱"
+                PhoneOrEmailTextField?.placeholder = "请输入手机号/帐号"
                 PhoneOrEmailTextField?.keyboardAppearance = .alert
                 PhoneOrEmailTextField?.keyboardType  = .numberPad
             }else if indexPath.row == 1 {
@@ -179,12 +196,12 @@ class LoginViewTable: UITableViewController , UITextFieldDelegate{
                 let PwdLabel = UILabel(frame: CGRect(x: 10, y: upsize, width: 120, height: 40))
                 PwdLabel.font = UIFont.boldSystemFont(ofSize: 22)
                 cell.addSubview(PwdLabel)
-                PwdLabel.text = "密码 "
+                PwdLabel.text = "密码: "
 //                PasswordField?.borderStyle = UITextBorderStyle.roundedRect
                 PasswordField?.delegate=self
-                PasswordField?.returnKeyType = UIReturnKeyType.join
+                PasswordField?.returnKeyType = UIReturnKeyType.send
                 PasswordField?.isSecureTextEntry = true
-                PasswordField?.minimumFontSize=16
+                PasswordField?.minimumFontSize=18
                 PasswordField?.clearButtonMode = .whileEditing
                 PasswordField?.adjustsFontSizeToFitWidth=true
                 cell.addSubview(PasswordField!)

@@ -24,6 +24,7 @@ class RegisterViewTable: UITableViewController, UITextFieldDelegate {
         
         let IdLabel = UIButton(frame: CGRect(x: Parameters.ScreenWidthCenter - 60, y: size.height - 80, width: 120, height: 40))
         IdLabel.titleLabel?.textColor = UIColor.blue
+        IdLabel.titleLabel?.font = UIFont(name: "Arial", size: 14)
         IdLabel.setTitle("用户协议", for: UIControlState.normal)
         IdLabel.setTitleColor(UIColor.blue, for: .normal)
         self.view.addSubview(IdLabel)
